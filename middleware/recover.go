@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"runtime"
 
-	"github.com/labstack/echo/v4"
+	"github.com/AndrewBewseyTNA/echo/v4"
 	"github.com/labstack/gommon/log"
 )
 
@@ -49,12 +49,12 @@ type (
 var (
 	// DefaultRecoverConfig is the default Recover middleware config.
 	DefaultRecoverConfig = RecoverConfig{
-		Skipper:           DefaultSkipper,
-		StackSize:         4 << 10, // 4 KB
-		DisableStackAll:   false,
-		DisablePrintStack: false,
-		LogLevel:          0,
-		LogErrorFunc:      nil,
+		Skipper:             DefaultSkipper,
+		StackSize:           4 << 10, // 4 KB
+		DisableStackAll:     false,
+		DisablePrintStack:   false,
+		LogLevel:            0,
+		LogErrorFunc:        nil,
 		DisableErrorHandler: false,
 	}
 )
@@ -120,7 +120,7 @@ func RecoverWithConfig(config RecoverConfig) echo.MiddlewareFunc {
 						}
 					}
 
-					if(!config.DisableErrorHandler) {
+					if !config.DisableErrorHandler {
 						c.Error(err)
 					} else {
 						returnErr = err

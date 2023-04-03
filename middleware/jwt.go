@@ -6,10 +6,11 @@ package middleware
 import (
 	"errors"
 	"fmt"
-	"github.com/golang-jwt/jwt"
-	"github.com/labstack/echo/v4"
 	"net/http"
 	"reflect"
+
+	"github.com/AndrewBewseyTNA/echo/v4"
+	"github.com/golang-jwt/jwt"
 )
 
 type (

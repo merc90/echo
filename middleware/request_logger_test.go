@@ -1,8 +1,6 @@
 package middleware
 
 import (
-	"github.com/labstack/echo/v4"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -10,6 +8,9 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/AndrewBewseyTNA/echo/v4"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRequestLoggerWithConfig(t *testing.T) {

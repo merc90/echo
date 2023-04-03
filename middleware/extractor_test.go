@@ -3,14 +3,15 @@ package middleware
 import (
 	"bytes"
 	"fmt"
-	"github.com/labstack/echo/v4"
-	"github.com/stretchr/testify/assert"
 	"mime/multipart"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
 	"strings"
 	"testing"
+
+	"github.com/AndrewBewseyTNA/echo/v4"
+	"github.com/stretchr/testify/assert"
 )
 
 type pathParam struct {

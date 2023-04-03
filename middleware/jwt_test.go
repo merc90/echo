@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/AndrewBewseyTNA/echo/v4"
 	"github.com/golang-jwt/jwt"
-	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
 )
 

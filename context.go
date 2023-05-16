@@ -596,8 +596,8 @@ func (c *context) Attachment(file, name string) error {
 	return c.contentDisposition(file, name, "attachment")
 }
 
-func (c *context) DownloadBlob(contentType string, b []byte) error {
-	return c.contentDispositionBlob(contentType, b, "attachment")
+func (c *context) DownloadBlob(contentType string, blo []byte) error {
+	return c.contentDispositionBlob(contentType, "attachment", blo)
 }
 
 func (c *context) Inline(file, name string) error {

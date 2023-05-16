@@ -152,6 +152,9 @@ type (
 
 		// Blob sends a blob response with status code and content type.
 		Blob(code int, contentType string, b []byte) error
+		
+		// DownloadBlob sends a blob response as attachement.
+		DownloadBlob(contentType string, b []byte) error
 
 		// Stream sends a streaming response with status code and content type.
 		Stream(code int, contentType string, r io.Reader) error
@@ -593,6 +596,10 @@ func (c *context) Attachment(file, name string) error {
 	return c.contentDisposition(file, name, "attachment")
 }
 
+func (c *context) DownloadBlob(contentType string, b []byte) error {
+	return c.contentDispositionBlob(contentType, b, "attachment")
+}
+
 func (c *context) Inline(file, name string) error {
 	return c.contentDisposition(file, name, "inline")
 }
@@ -600,6 +607,11 @@ func (c *context) Inline(file, name string) error {
 func (c *context) contentDisposition(file, name, dispositionType string) error {
 	c.response.Header().Set(HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", dispositionType, name))
 	return c.File(file)
+}
+
+func (c *context) contentDispositionBlob(contentType, dispositionType string, b []byte) error {
+	c.response.Header().Set(HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", dispositionType, "resp.json"))
+	return c.Blob(http.StatusOK, contentType, b)
 }
 
 func (c *context) NoContent(code int) error {

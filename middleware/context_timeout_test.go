@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/AndrewBewseyTNA/echo/v4"
+	"github.com/merc90/echo/v4"
 	"github.com/stretchr/testify/assert"
 )
 
